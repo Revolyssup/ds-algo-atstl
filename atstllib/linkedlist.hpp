@@ -49,6 +49,9 @@ class LinkedList{
 
     //prints all elements
     void print();
+
+    //Iterates over each element of list and executes the callback function
+    void Foreach(void(*cb)(atstl::node<T>*));
 };
 
 /***************************************Defining Member functions**************************************************/
@@ -113,6 +116,19 @@ void LinkedList<T>::pop(T key){
 
     }
  
+}
+
+//defining ForEach
+template<typename T>
+void LinkedList<T>::Foreach(void(*cb)(atstl::node<T>*)){
+    node<T>* temp= new node<T>();
+    temp->next=head.next;
+    while(temp->next)
+    {
+        cb(temp->next);
+       temp->next=temp->next->next;
+    
+    }
 }
 
 }

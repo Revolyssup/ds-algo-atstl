@@ -2,14 +2,15 @@
 #include<vector>
 #include "atstl.hpp"
 
+void twice(atstl::node<int>* n){
+    n->data=(n->data)*2;
+}
+
 int main(){
+    void(*cb)(atstl::node<int>*)=twice;
     std::vector<int> vec={12,58,96,23,1,4};
     atstl::LinkedList<int> list(vec);
-    std::cout<<"Before pop"<<std::endl;
     list.print();
-    
-    list.pop(9);
-    std::cout<<"After pop"<<std::endl;
+    list.Foreach(cb);
     list.print();
-    
 }
