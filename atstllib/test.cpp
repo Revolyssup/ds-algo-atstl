@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<functional>
 #include "atstl.hpp"
 
 //takes pointer to a node and doubles data of all nodes
@@ -8,6 +9,8 @@ void twice(atstl::node<int>* n){
 }
 
 int main(){
+
+    /***Testing Linked List***/
     std::vector<int> vec={12,58,96,23,1,4};
     //creates list from vector
     atstl::LinkedList<int> list(vec);
@@ -18,4 +21,10 @@ int main(){
     list.Foreach(twice);
     std::cout<<"*******************\n";
     list.print();
+
+
+
+
+    /*******Testing heap*********/
+    
 }

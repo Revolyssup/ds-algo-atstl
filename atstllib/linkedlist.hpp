@@ -1,7 +1,6 @@
 #pragma once
 #include "node.hpp"
 #include<vector>
-
 namespace atstl{
 
 template<class T>
@@ -51,7 +50,8 @@ class LinkedList{
     void print();
 
     //Iterates over each element of list and executes the callback function
-    void Foreach(void(*cb)(atstl::node<T>*));
+    void Foreach(const std::function<void(atstl::node<T>*)> &cb);
+    // void Foreach(void(*cb)(atstl::node<T>*));
 };
 
 /***************************************Defining Member functions**************************************************/
@@ -120,7 +120,7 @@ void LinkedList<T>::pop(T key){
 
 //defining ForEach
 template<typename T>
-void LinkedList<T>::Foreach(void(*cb)(atstl::node<T>*)){
+void LinkedList<T>::Foreach(const std::function<void(atstl::node<T>*)> &cb){
     node<T>* temp= new node<T>();
     temp->next=head.next;
     while(temp->next)
