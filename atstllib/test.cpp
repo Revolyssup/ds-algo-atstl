@@ -18,9 +18,9 @@ int main(){
     //prints data of all nodes
     list.print();
     //twice passed as a callback(twice is implictly converted into a function pointer so we could have explicitly use &twice)
-    list.Foreach(twice);
-    std::cout<<"*******************\n";
-    list.print();
+    // list.Foreach(twice);
+    // std::cout<<"*******************\n";
+    // list.print();
 
 
 

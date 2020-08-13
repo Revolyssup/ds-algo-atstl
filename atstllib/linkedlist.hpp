@@ -69,11 +69,11 @@ void LinkedList<T>::insert(T data){
 template<typename T>
 void LinkedList<T>::print(){
     node<T>* temp= new node<T>();
-    temp->next=head.next;
-    while(temp->next)
+    temp=head.next;
+    while(temp)
     {
-        std::cout<<temp->next->data<<std::endl;
-        temp->next=temp->next->next;
+        std::cout<<temp->data<<std::endl;
+        temp=temp->next;
         
     }
 }
