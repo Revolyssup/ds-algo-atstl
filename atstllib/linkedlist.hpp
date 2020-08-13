@@ -45,6 +45,8 @@ class LinkedList{
 
     //pops out given element somewhere in linkedlist.
     void pop(T key);
+    //pops out first element
+    void pop();
 
     //prints all elements
     void print();
@@ -84,11 +86,11 @@ int LinkedList<T>::check(T key)
 {
     int i=0;
     node<T>* temp= new node<T>();
-    temp->next=head.next;
+    temp=head.next;
     while(temp)
     {
-        if(temp->next->data==key) return i;
-        temp->next=temp->next->next;
+        if(temp->data==key) return i;
+        temp=temp->next;
         i++;
     }
     return -1;
@@ -98,35 +100,48 @@ int LinkedList<T>::check(T key)
 template<typename T>
 void LinkedList<T>::pop(T key){
 
+    if(head.next->data==key){
+        node<T>* temp=new node<T>();
+        temp=head.next;
+        head.next=head.next->next;
+        delete temp;
+    }
     node<T>* tempHead= new node<T>();
     node<T>* tempTail= new node<T>();
-    tempHead->next=head.next;
-    tempTail->next=head.next;
-    while(tempHead->next)
+    tempHead=head.next;
+    tempTail=head.next;
+    while(tempHead)
     {
-        if(tempHead->next->data==key){
-            node<T>* del=tempHead->next;
-            tempTail->next->next=tempHead->next->next;
+        if(tempHead->data==key){
+            node<T>* del=tempHead;
+            tempTail->next=tempHead->next;
             delete del;
 
         };
-        tempTail->next=tempHead->next;
-        tempHead->next=tempHead->next->next;
+        tempTail=tempHead;
+        tempHead=tempHead->next;
     
 
     }
  
 }
 
+template<typename T>
+void LinkedList<T>::pop(){
+        node<T>* temp=new node<T>();
+        temp=head.next;
+        head.next=head.next->next;
+        delete temp;
+}
 //defining ForEach
 template<typename T>
 void LinkedList<T>::Foreach(const std::function<void(atstl::node<T>*)> &cb){
     node<T>* temp= new node<T>();
-    temp->next=head.next;
-    while(temp->next)
+    temp=head.next;
+    while(temp)
     {
-        cb(temp->next);
-       temp->next=temp->next->next;
+        cb(temp);
+       temp=temp->next;
     
     }
 }

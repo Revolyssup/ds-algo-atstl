@@ -16,11 +16,13 @@ int main(){
     atstl::LinkedList<int> list(vec);
 
     //prints data of all nodes
+    std::cout<<"*********Before all operations**********\n";
     list.print();
     //twice passed as a callback(twice is implictly converted into a function pointer so we could have explicitly use &twice)
-    // list.Foreach(twice);
-    // std::cout<<"*******************\n";
-    // list.print();
+    list.Foreach(twice);
+    list.pop(24);
+    std::cout<<"*********After all operations**********\n";
+    list.print();
 
 
 
