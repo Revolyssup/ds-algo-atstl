@@ -27,24 +27,37 @@ int main(){
 
 
     /*******Testing Sorting*********/
+    int arr[]={10,9,8,7,5,3,1};
 
     //Bubble sort
     atstl::Sort::bubbleSort(vec);
-    std::cout<<"********* After insertion sort **********\n";
+    std::cout<<"********* After bubble sort on vector**********\n";
     for(auto i:vec){
         std::cout<<i<<std::endl;
 
     }
 
     //Bubble sort with arrays
-    int arr[]={10,9,8,7,5,3,1};
     atstl::Sort::bubbleSort(arr,7);
-    std::cout<<"********* After insertion sort **********\n";
+    std::cout<<"********* After bubble sort on array**********\n";
     for(int i=0;i<7;i++){
         std::cout<<arr[i]<<std::endl;
 
     }
-    //insertion sort
-    
+    //insertion sort on vector
+     atstl::Sort::insertionSort(vec);
+    std::cout<<"********* After insertion sort on vector**********\n";
+    for(auto i:vec){
+        std::cout<<i<<std::endl;
+
+    }
+
+    //insertion sort on array
+    atstl::Sort::bubbleSort(arr,7);
+    std::cout<<"********* After insertion sort on array**********\n";
+    for(int i=0;i<7;i++){
+        std::cout<<arr[i]<<std::endl;
+
+    }
     
 }

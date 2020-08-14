@@ -23,11 +23,35 @@ namespace atstl{
         }
 
 
-        
+        /***********************************************************************/
+
         //performs insertion sort for vectors
         void insertionSort(std::vector<int>& arr){
+            int temp;
+            for(int key=1;key<arr.size();key++){
+                for(int j=key-1;j>-1;j--){
+                    temp=arr[key];
+                    if(arr[j]<=temp) break;
+                    atstl::utils::swap<int>(&temp,&arr[j]);
 
+                }
+            }
         }
+
+         //performs insertion sort for array
+        void insertionSort(int arr[],int l){
+            int temp;
+            for(int key=1;key<l;key++){
+                for(int j=key-1;j>-1;j--){
+                    temp=arr[key];
+                    if(arr[j]<=temp) break;
+                    atstl::utils::swap<int>(&temp,&arr[j]);
+
+                }
+            }
+        }
+
+        /***********************************************************************/
 
     }
 }
