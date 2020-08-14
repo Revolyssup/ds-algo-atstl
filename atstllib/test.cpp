@@ -60,4 +60,12 @@ int main(){
 
     }
     
+
+    //checking merge
+    int v[10]={10,9,8,7,6,5,4,3,2,1};
+    int* v3=atstl::Sort::mergeSort(v,0,9);
+    std::cout<<"After merge sort"<<std::endl;
+    for(int i=0;i<10;i++){
+        std::cout<<v3[i]<<std::endl;
+    }
 }

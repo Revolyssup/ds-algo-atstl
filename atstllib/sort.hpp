@@ -53,5 +53,52 @@ namespace atstl{
 
         /***********************************************************************/
 
+
+        //Takes two sorted arrays and returns a combined sorted array
+
+        int* merge(int arr1[],int arr2[],int s1,int s2){
+            int* ans= new int[s1+s2];
+            int i=0;
+            int j=0;
+            int ansi=0;
+            while(i<s1 && j<s2){
+                if(arr1[i]<=arr2[j]){
+                    ans[ansi++]=arr1[i++];
+                }
+                else{
+                    ans[ansi++]=arr2[j++];
+                }
+            }
+            while(i<s1){    
+                ans[ansi++]=arr1[i++];
+            }
+             while(j<s2){
+                 ans[ansi++]=arr2[j++];
+            }
+            return ans;
+        }
+
+
+        //performs merge sort for vec
+        int* mergeSort(int arr[],int start,int end){
+
+            //T(1)
+            if(start==end){ //base case,when arrray is divided upto one element
+                int* leaf= new int[1];
+                leaf[0]=arr[start];
+                return leaf;
+            } 
+
+            int mid=(start+end)/2; 
+            //2T(n/2)
+            int* arr1=mergeSort(arr,start,mid);
+            int* arr2=mergeSort(arr,mid+1,end);
+            
+            //T(n)
+            int* ans=merge(arr1,arr2,(mid-start)+1,end-(mid+1)+1);
+            delete arr1;
+            delete arr2;
+            return ans;
+        }
     }
 }
