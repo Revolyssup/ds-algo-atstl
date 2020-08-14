@@ -16,17 +16,35 @@ int main(){
     atstl::LinkedList<int> list(vec);
 
     //prints data of all nodes
-    std::cout<<"*********Before all operations**********\n";
+    std::cout<<"*********Before all operations on linkd list**********\n";
     list.print();
     //twice passed as a callback(twice is implictly converted into a function pointer so we could have explicitly use &twice)
     list.Foreach(twice);
     list.pop(24);
-    std::cout<<"*********After all operations**********\n";
+    std::cout<<"*********After all operations on linked list**********\n";
     list.print();
+   
 
 
+    /*******Testing Sorting*********/
 
+    //Bubble sort
+    atstl::Sort::bubbleSort(vec);
+    std::cout<<"********* After insertion sort **********\n";
+    for(auto i:vec){
+        std::cout<<i<<std::endl;
 
-    /*******Testing heap*********/
+    }
+
+    //Bubble sort with arrays
+    int arr[]={10,9,8,7,5,3,1};
+    atstl::Sort::bubbleSort(arr,7);
+    std::cout<<"********* After insertion sort **********\n";
+    for(int i=0;i<7;i++){
+        std::cout<<arr[i]<<std::endl;
+
+    }
+    //insertion sort
+    
     
 }

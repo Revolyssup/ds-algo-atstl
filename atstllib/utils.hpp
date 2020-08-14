@@ -2,7 +2,7 @@ namespace atstl{
     namespace utils{
 
         //Swap function to swap values at different addresses pointed to by two pointers
-        //Made of frequent use of swapping in sorts.
+        //Made for frequent use of swapping in sorts.
         template<typename T>
         void swap(T* a,T* b){
             T temp=*a;
