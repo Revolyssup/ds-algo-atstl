@@ -21,6 +21,7 @@ atstl::Sort::mergeSort(vec) //where vec is a given vector
 atstl::Sort::mergeSort(arr,l) //where arr is an array and l is its length
 
 atstl::Sort::maxheapSort(arr,l)
+atstl::Sort::QuickSort(arr,p,q) //p and q are lowest and highest index of the array
 ```
 -------------------------------------------------
 ### You can clone this repository and include atstl.hpp from atstllib to use all data structures and algorithms.

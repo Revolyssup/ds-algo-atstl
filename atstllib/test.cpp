@@ -6,9 +6,9 @@
 
 
 int main(){
-    int arr[]={8,7,6,5,4,3,2,1};
-    atstl::Sort::maxheapSort(arr,8);
-    for(int i=0;i<8;i++){
+    int arr[]={3,5,1,8,12,400,2};
+   atstl::Sort::QuickSort(arr,0,6);
+    for(int i=0;i<7;i++){
         std::cout<<arr[i]<<std::endl;
     }
 

@@ -102,7 +102,8 @@ namespace atstl{
             delete arr2;
             return ans;
         }
-
+            
+            //HeapSort
              void maxheapSort(int* arr, int size){
                 int heapSize=size;
                 atstl::heap::buildMaxHeap(arr,size); //convert the array into max heap such that 1st element is always maximum
@@ -112,5 +113,39 @@ namespace atstl{
                     atstl::heap::maxHeapify(arr,0,heapSize); //We messed the top so we will reheapify to get largest at top
                 }
             }
+
+            /***************************Quick Sort*******************************/
+            
+            //O(n)
+            int partition(int* arr,int p,int q){
+                int pivot=q;
+                int i=p-1;
+                
+                for(int j=p;j<q;j++) if(arr[j]<=arr[pivot]) atstl::utils::swap(&arr[j],&arr[++i]);
+                atstl::utils::swap(&arr[pivot],&arr[i+1]);
+                return i+1;
+                
+            }
+            
+            int partitionSecondary(int* arr,int p,int q){
+                int pivot=p;
+                int i=p;
+                for(int j=p+1;j<=q;j++) if(arr[j]<=arr[pivot]) atstl::utils::swap(&arr[j],&arr[++i]);
+                atstl::utils::swap(&arr[pivot],&arr[i+1]);
+                return i;
+            }
+
+            void QuickSort(int* arr,int p,int q){
+                if(p<q){
+                //theta(n)
+                int pivot=partition(arr,p,q);
+
+                //2T(n/2)
+                QuickSort(arr,p,pivot-1);
+                QuickSort(arr,pivot+1,q);
+                }
+               
+            }
+            /*In worst case of quick sort,that is when array is in descending order,2T(n/2)~T(n-1). Then time complexity will come as n^2*/
     }
 }
