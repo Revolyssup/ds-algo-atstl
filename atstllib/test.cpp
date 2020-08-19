@@ -1,18 +1,23 @@
 #include<iostream>
 #include<vector>
+#include<thread>
 #include<functional>
 #include "atstl.hpp"
 
 
 
 int main(){
-    int arr[]={3,5,1,8,12,400,2};
-   atstl::Sort::QuickSort(arr,0,6);
+     std::cout<<"hy";
+    int arr[]={10,8,8,7,6,6,2};
+    auto i=std::chrono::high_resolution_clock::now();
+    int* answer=atstl::Sort::countingSort(arr,7,10);
+    auto j=std::chrono::high_resolution_clock::now();
     for(int i=0;i<7;i++){
-        std::cout<<arr[i]<<std::endl;
+        std::cout<<answer[i]<<std::endl;
     }
-
-   
+    auto ans=std::chrono::duration_cast<std::chrono::microseconds>(j-i);
+    std::cout<<"Time taken in microseconds: "<<std::chrono::duration<double,std::micro>(ans).count()<<std::endl;
+   return 0;
 }
 // //takes pointer to a node and doubles data of all nodes
 // void twice(atstl::node<int>* n){

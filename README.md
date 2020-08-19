@@ -6,6 +6,12 @@ atstl::LinkedList<T data>()
 atstl::LinkedList<T data>(vector V)
 ```
 
+## Heap-
+```C++
+atstl::heap::buildMaxHeap(int* arr,int size) //takes an array and converts it into a max heap
+atstl::heap::maxHeapify(int* arr,int i,int size) //takes a defaulter heap and an index from which it's needed to be corrected
+```
+
 ## Sorting algorithms
 ```C++
 atstl::Sort::bubbleSort(vec) //where vec is a given vector
