@@ -127,6 +127,12 @@ namespace atstl{
                 
             }
             
+            int randomPartition(int* arr,int p,int q){
+                 /*Randomization ensures the time complexity to be O(nlogn)*/
+                int pivot=(rand()%(q-p+1)+p); //generating a random index between p and q
+                atstl::utils::swap(&arr[pivot],&arr[q]); 
+                return partition(arr,p,q);
+            }
             int partitionSecondary(int* arr,int p,int q){
                 int pivot=p;
                 int i=p;
@@ -138,7 +144,7 @@ namespace atstl{
             void QuickSort(int* arr,int p,int q){
                 if(p<q){
                 //theta(n)
-                int pivot=partition(arr,p,q);
+                int pivot=randomPartition(arr,p,q);
 
                 //2T(n/2)
                 QuickSort(arr,p,pivot-1);
@@ -146,6 +152,6 @@ namespace atstl{
                 }
                
             }
-            /*In worst case of quick sort,that is when array is in descending order,2T(n/2)~T(n-1). Then time complexity will come as n^2*/
+            /*In worst case of non randomized quick sort,that is when array is in descending order,2T(n/2)~T(n-1). Then time complexity will come as n^2*/
     }
 }
