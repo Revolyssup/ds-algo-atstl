@@ -1,4 +1,6 @@
 #pragma once
+#include<thread>
+#include "heap.hpp"
 namespace atstl{
     namespace Sort{
 
@@ -100,5 +102,15 @@ namespace atstl{
             delete arr2;
             return ans;
         }
+
+             void maxheapSort(int* arr, int size){
+                int heapSize=size;
+                atstl::heap::buildMaxHeap(arr,size); //convert the array into max heap such that 1st element is always maximum
+                for(int i=size-1;i>-1;i--){
+                    atstl::utils::swap(&arr[i],&arr[0]); //starting from last element,we keep exchanging root(max) with arr[i]
+                    heapSize--;
+                    atstl::heap::maxHeapify(arr,0,heapSize); //We messed the top so we will reheapify to get largest at top
+                }
+            }
     }
 }

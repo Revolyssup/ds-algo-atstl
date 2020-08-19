@@ -19,6 +19,8 @@ atstl::Sort::merge(arr1,arr2,s1,s2) //s1 and s2 are lengths of arr1 and arr2 res
 
 atstl::Sort::mergeSort(vec) //where vec is a given vector
 atstl::Sort::mergeSort(arr,l) //where arr is an array and l is its length
+
+atstl::Sort::maxheapSort(arr,l)
 ```
 -------------------------------------------------
 ### You can clone this repository and include atstl.hpp from atstllib to use all data structures and algorithms.
