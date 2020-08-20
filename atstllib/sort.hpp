@@ -31,10 +31,10 @@ namespace atstl{
         void insertionSort(std::vector<int>& arr){
             int temp;
             for(int key=1;key<arr.size();key++){
+                temp=arr[key];
                 for(int j=key-1;j>-1;j--){
-                    temp=arr[key];
                     if(arr[j]<=temp) break;
-                    atstl::utils::swap<int>(&temp,&arr[j]);
+                    atstl::utils::swap<int>(&arr[j+1],&arr[j]);
 
                 }
             }
@@ -44,10 +44,10 @@ namespace atstl{
         void insertionSort(int arr[],int l){
             int temp;
             for(int key=1;key<l;key++){
+                temp=arr[key];
                 for(int j=key-1;j>-1;j--){
-                    temp=arr[key];
                     if(arr[j]<=temp) break;
-                    atstl::utils::swap<int>(&temp,&arr[j]);
+                    atstl::utils::swap<int>(&arr[j+1],&arr[j]);
 
                 }
             }
@@ -165,6 +165,7 @@ namespace atstl{
 
 
             /******************Counting Sort***********/
+
             //This sort maintains a count of number of elements before an element in sorted position.
             //This should be used only when array contains positive numbers in a small range [0,k]
             //It takes O(k) extra space
@@ -193,6 +194,7 @@ namespace atstl{
                 return answer;
             }
 
+            /***************Radix sort**************/
             
     }
 }

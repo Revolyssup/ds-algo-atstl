@@ -10,10 +10,10 @@ int main(){
      std::cout<<"hy";
     int arr[]={10,8,8,7,6,6,2};
     auto i=std::chrono::high_resolution_clock::now();
-    int* answer=atstl::Sort::countingSort(arr,7,10);
+    atstl::Sort::insertionSort(arr,7);
     auto j=std::chrono::high_resolution_clock::now();
     for(int i=0;i<7;i++){
-        std::cout<<answer[i]<<std::endl;
+        std::cout<<arr[i]<<std::endl;
     }
     auto ans=std::chrono::duration_cast<std::chrono::microseconds>(j-i);
     std::cout<<"Time taken in microseconds: "<<std::chrono::duration<double,std::micro>(ans).count()<<std::endl;
