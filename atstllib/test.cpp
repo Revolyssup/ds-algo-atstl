@@ -7,17 +7,15 @@
 
 
 int main(){
-     std::cout<<"hy";
-    int arr[]={10,8,8,7,6,6,2};
-    auto i=std::chrono::high_resolution_clock::now();
-    atstl::Sort::insertionSort(arr,7);
-    auto j=std::chrono::high_resolution_clock::now();
-    for(int i=0;i<7;i++){
-        std::cout<<arr[i]<<std::endl;
+    vec2d a={{1,0,0},{0,2,0},{0,0,3}};
+    vec2d b=atstl::matmul(a,a);
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            std::cout<<b[i][j]<<" ";
+        }
+        std::cout<<std::endl;
     }
-    auto ans=std::chrono::duration_cast<std::chrono::microseconds>(j-i);
-    std::cout<<"Time taken in microseconds: "<<std::chrono::duration<double,std::micro>(ans).count()<<std::endl;
-   return 0;
+
 }
 // //takes pointer to a node and doubles data of all nodes
 // void twice(atstl::node<int>* n){
