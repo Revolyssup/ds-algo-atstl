@@ -74,7 +74,7 @@ void LinkedList<T>::print(){
     temp=head.next;
     while(temp)
     {
-        std::cout<<temp->data<<std::endl;
+        std::cout<<temp->data<<" ";
         temp=temp->next;
         
     }

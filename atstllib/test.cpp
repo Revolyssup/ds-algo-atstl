@@ -7,16 +7,31 @@
 
 
 int main(){
-    vec2d a={{1,0,0},{0,2,0},{0,0,3}};
-    vec2d b=atstl::matmul(a,a);
-    for(int i=0;i<3;i++){
-        for(int j=0;j<3;j++){
-            std::cout<<b[i][j]<<" ";
-        }
-        std::cout<<std::endl;
-    }
-
+    atstl::hashMap<int> h(19);
+    h.insert(3,57);
+    h.insert(4,7);
+    h.insert(5,547);
+    h.insert(6,87);
+    h.print();
+    h.search(0,15) ? std::cout<<"Does exists"<<std::endl : std::cout<<"Does not exists"<<std::endl;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // //takes pointer to a node and doubles data of all nodes
 // void twice(atstl::node<int>* n){
 //     n->data=(n->data)*2;
