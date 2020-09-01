@@ -10,5 +10,7 @@ namespace atstl{
             *a=*b;
             *b=temp;
         }
+
+
     }//namespace utils
 } //namespace atstl

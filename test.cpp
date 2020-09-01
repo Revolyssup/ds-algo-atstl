@@ -4,18 +4,20 @@
 #include<functional>
 #include "./atstllib/atstl.hpp"
 
-
+void print(atstl::treenode<int>* a){
+    std::cout<<(a->data)<<"\n";
+}
+void sq(atstl::treenode<int>* a){
+    a->data*=a->data;
+}
 
 int main(){
-    std::vector<int> vec={1,2,3,4,5,6};
-    atstl::LinkedList<int> A(vec);
-    atstl::LinkedList<int> B=A;
-    std::cout<<"Original list\n";
-    A.print();
-    std::cout<<"\nCopied list\n";
-    B.print();
-    std::cout<<"\n";
-
+   atstl::bst<int> a(10);
+   a.insert(12);
+   a.insert(7);
+   a.inorder(&a.root,print);
+   a.inorder(&a.root,sq);
+   a.inorder(&a.root,print);
 }
 
 
@@ -25,6 +27,9 @@ int main(){
 
 
 
+// void print(atstl::treenode<int> a){
+//         std::cout<<a.data<<"\n";
+// }
 
 
 
