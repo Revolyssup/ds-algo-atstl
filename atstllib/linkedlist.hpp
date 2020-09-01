@@ -12,7 +12,27 @@ class LinkedList{
 
     //constructor 
     LinkedList():head(),length(0){}
+    
+    //copy constructor to deep copy a linked list
+    LinkedList(const LinkedList& other):length(other.length){
+        node<T>* trackother=new node<T>(); //iterates on original list
+        node<T>* tracknew= new node<T>();   //iterates on new list
+        tracknew=&head;
+        trackother=other.head.next;
+        while (trackother)
+        {
+           
+             node<T>* temp=new node<T>();    //helps to create new node
+             temp->data=trackother->data;
+             temp->next=trackother->next;
+             trackother=trackother->next; //trackother move forwards
+             tracknew->next=temp;
+             tracknew=tracknew->next; //tracknew is pointing to the latest new node
+            std::cout<<temp->data<<" \n";
+        }
+        
 
+    }
     //constructor to create linked list from vector.
     LinkedList(std::vector<T> &values){
         /*insert(T data) method inserts at the beginning so we
@@ -89,6 +109,7 @@ int LinkedList<T>::check(T key)
     temp=head.next;
     while(temp)
     {
+
         if(temp->data==key) return i;
         temp=temp->next;
         i++;

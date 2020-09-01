@@ -2,23 +2,21 @@
 #include<vector>
 #include<thread>
 #include<functional>
-#include "atstl.hpp"
+#include "./atstllib/atstl.hpp"
 
 
 
 int main(){
-    atstl::hashMap<int> h(19);
-    h.insert(3,57);
-    h.insert(4,7);
-    h.insert(5,547);
-    h.insert(6,87);
-    h.print();
-    h.search(0,15) ? std::cout<<"Does exists"<<std::endl : std::cout<<"Does not exists"<<std::endl;
+    std::vector<int> vec={1,2,3,4,5,6};
+    atstl::LinkedList<int> A(vec);
+    atstl::LinkedList<int> B=A;
+    std::cout<<"Original list\n";
+    A.print();
+    std::cout<<"\nCopied list\n";
+    B.print();
+    std::cout<<"\n";
+
 }
-
-
-
-
 
 
 

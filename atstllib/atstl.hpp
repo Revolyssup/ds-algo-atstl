@@ -5,3 +5,4 @@
 #include "sort.hpp"
 #include "heap.hpp"
 #include "hash.hpp"
+#include "bst.hpp"

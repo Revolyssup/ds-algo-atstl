@@ -16,4 +16,22 @@ namespace atstl{
         }
 
     };
+    template<typename T>
+     class treenode{
+        //node has data and pointer to next node
+        public:
+        T data;
+        treenode* left;
+        treenode* right;
+
+        //adding constructor
+        public:
+        treenode(): data(T()),left(nullptr),right(nullptr){};
+        treenode(T data){
+            this->data=data;
+            this->left=nullptr;
+            this->right=nullptr;
+        }
+
+    };
 }//namspace atstl

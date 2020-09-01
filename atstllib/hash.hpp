@@ -20,15 +20,17 @@ namespace atstl{
             int index=hash(key);      
             table[index].insert(value);
         } 
-        void print(){
-            for(auto ll: table){
+        void printTable(){
+            int i=0;
+            for(auto &ll: table){
+                std::cout<<"At "<<i++<<" index==>";
                 ll.print();
                 std::cout<<"/ \n ";
             }
         }
         bool search(int key,int value){
-            int index=hash(key);
             
+            int index=hash(key);
             if(table[index].check(value)==-1) return 0 ;
             else return 1;
         }
