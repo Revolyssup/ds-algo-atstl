@@ -15,8 +15,12 @@ int main(){
    atstl::bst<int> a(10);
    a.insert(12);
    a.insert(7);
+   a.insert(200);
+   a.insert(1);
    a.inorder(&a.root,print);
-   a.inorder(&a.root,sq);
+
+   std::cout<<"...........\n";
+   a.deletenode(&a.root,14);
    a.inorder(&a.root,print);
 }
 
