@@ -1,4 +1,5 @@
 #pragma once
+#include<functional>
 #include "node.hpp"
 #include "linkedlist.hpp"
 #include "utils.hpp"

@@ -5,14 +5,13 @@ namespace atstl{
 
 template<class T>
 class LinkedList{
-    node<T> head;
 
     public:
     int length;
-
+    node<T> head;
     //constructor 
     LinkedList():head(),length(0){}
-    
+        
     //copy constructor to deep copy a linked list
     LinkedList(const LinkedList& other):length(other.length){
         node<T>* trackother=new node<T>(); //iterates on original list
@@ -64,7 +63,7 @@ class LinkedList{
     int check(T key);
 
     //pops out given element somewhere in linkedlist.
-    void pop(T key);
+    void Delete(T key);
     //pops out first element
     void pop();
 
@@ -90,6 +89,7 @@ void LinkedList<T>::insert(T data){
 //defining print
 template<typename T>
 void LinkedList<T>::print(){
+    std::cout<<std::endl;
     node<T>* temp= new node<T>();
     temp=head.next;
     while(temp)
@@ -98,6 +98,7 @@ void LinkedList<T>::print(){
         temp=temp->next;
         
     }
+   std::cout<<std::endl;
 }
 
 //Defining check
@@ -117,33 +118,58 @@ int LinkedList<T>::check(T key)
     return -1;
 }
 
-// Defining pop
+// Defining Delete
 template<typename T>
-void LinkedList<T>::pop(T key){
+void LinkedList<T>::Delete(T key){
+if(!(check(key)+1)) return;
+/*******The linus torvalds approved approach*******/
+atstl::node<int>* indirect=&head;
+while((*indirect).data!=key) indirect=&(*indirect->next);
+*indirect=*(indirect->next);
 
-    if(head.next->data==key){
-        node<T>* temp=new node<T>();
-        temp=head.next;
-        head.next=head.next->next;
-        delete temp;
-    }
-    node<T>* tempHead= new node<T>();
-    node<T>* tempTail= new node<T>();
-    tempHead=head.next;
-    tempTail=head.next;
-    while(tempHead)
-    {
-        if(tempHead->data==key){
-            node<T>* del=tempHead;
-            tempTail->next=tempHead->next;
-            delete del;
+/***********Previous approach which Linus torvalds particularly dont like*********/
+    // atstl::node<int>* prev=NULL;
+    // atstl::node<int>* curr=head.next;
+    // while(curr->data!=key){
+    //     prev=curr;
+    //     curr=curr->next;
+    // } 
 
-        };
-        tempTail=tempHead;
-        tempHead=tempHead->next;
+    // if(!prev){//This if block is what Linus torvalds particularly hated as told in his ted talk at timestamp 15:37.
+    //     atstl::node<int>* temp=curr;
+    //     head.next=curr->next;
+    //     delete temp;
+    // } 
+    // else{
+    //     atstl::node<int>* temp=curr;
+    //     prev->next=curr->next;
+    //     delete temp;
+    // }
+
+/********Previous to previous Ugly approach. If Linus Torvalds saw this,he would anhilate me.********/
+    // if(head.next->data==key){
+    //     node<T>* temp=new node<T>();
+    //     temp=head.next;
+    //     head.next=head.next->next;
+    //     delete temp;
+    // }
+    // node<T>* tempHead= new node<T>();
+    // node<T>* tempTail= new node<T>();
+    // tempHead=head.next;
+    // tempTail=head.next;
+    // while(tempHead)
+    // {
+    //     if(tempHead->data==key){
+    //         node<T>* del=tempHead;
+    //         tempTail->next=tempHead->next;
+    //         delete del;
+
+    //     };
+    //     tempTail=tempHead;
+    //     tempHead=tempHead->next;
     
 
-    }
+    // }
  
 }
 

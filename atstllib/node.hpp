@@ -34,4 +34,25 @@ namespace atstl{
         }
 
     };
+
+     template<typename T>
+     class RBtreenode{
+        //node has data and pointer to next node
+        public:
+        T data;
+        bool color; //If this bit is 1,then node is red,otherwise black
+        RBtreenode* left;
+        RBtreenode* right;
+
+        //adding constructor
+        public:
+        RBtreenode(bool rb): data(T()),left(nullptr),right(nullptr),color(rb){};
+        RBtreenode(bool rb,T data){
+            this->data=data;
+            this->left=nullptr;
+            this->right=nullptr;
+            this->color=rb;
+        }
+
+    };
 }//namspace atstl

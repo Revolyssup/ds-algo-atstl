@@ -4,24 +4,29 @@
 #include<functional>
 #include "./atstllib/atstl.hpp"
 
-void print(atstl::treenode<int>* a){
+void print(atstl::node<int>* a){
     std::cout<<(a->data)<<"\n";
 }
-void sq(atstl::treenode<int>* a){
-    a->data*=a->data;
+void sq(atstl::node<int>* a){
+    a->data=2*a->data;
+}
+void twice(atstl::node<int>* n){
+    n->data=(n->data)*2;
 }
 
 int main(){
-   atstl::bst<int> a(10);
-   a.insert(12);
-   a.insert(7);
-   a.insert(200);
-   a.insert(1);
-   a.inorder(&a.root,print);
-
-   std::cout<<"...........\n";
-   a.deletenode(&a.root,14);
-   a.inorder(&a.root,print);
+    atstl::LinkedList<int> L;
+    L.insert(15);
+    L.insert(19);
+    L.insert(18);
+    L.insert(17);
+    L.insert(171);
+    L.insert(1789);
+    L.insert(156);
+    L.print();
+    // L.Foreach(twice);
+    L.Delete(19);
+    L.print();
 }
 
 
@@ -40,9 +45,6 @@ int main(){
 
 
 // //takes pointer to a node and doubles data of all nodes
-// void twice(atstl::node<int>* n){
-//     n->data=(n->data)*2;
-// }
 
 //  /***Testing Linked List***/
 //     std::vector<int> vec={12,58,96,23,1,4};
