@@ -1,5 +1,6 @@
 #pragma once
 #include "node.hpp"
+#include "utils.hpp"
 #include<cmath>
 #include<functional>
 namespace atstl{
@@ -10,7 +11,7 @@ namespace atstl{
             atstl::treenode<int> root; //root of the tree
            bst(int data):root(data),numberOfnodes(){} //initializing with a root value
            bst():root(){} //initializing an empty binary search tree
-            
+
         /*Declaring member functions*/
         void insert(int data); //Inserts a new node at leaf with the specified data
         treenode<T>* search(int key); //Searches and returns a treenode with given key.If not found,returns NULL.
@@ -130,5 +131,73 @@ treenode<T>* bst<T>::deletenode(treenode<T>* root,int key)  {
         }
     return root; //Return modified root
     }
+
+
+
+
+//OBST
+template<typename T>
+class obst:public bst{
+            int** expectation;
+            int** w;
+            int** roots;
+            int* prob;
+            int numberOfnodes;
+            public:
+            int optExpectation;
+            atstl::treenode<int> root; 
+           //Constructor for an Optimal BST which also takes in the probability pi of key ki.So there are two arrays.
+           obst(int* arr,int* p,int n):numberOfnodes(n){
+               obstProb=new int[n];
+               for(int i=0;i<n;i++){
+                   prob[i]=p[i];
+               }
+
+               makeObst();
+
+               optExpectation=expectation[1][numberOfnodes+1];
+              root.data=roots[1][n];
+
+              //Inserting other nodes according to probability.
+              for(int i=0;i<numberOfnodes-1;i++){
+                  this.insert()
+              }
+
+           }
+
+           //Gives recipi for making obst
+           void makeObst(){
+                expectation=utils::create2darr(0,numberOfnodes+1,numberOfnodes+2);//we will take from e[0][1] to e[n][n+1] as 0.
+                w=utils::create2darr(0,numberOfnodes+1,numberOfnodes+2);
+                roots=utils::create2darr(-1,numberOfnodes+1,numberOfnodes);
+                //For the subtree of length 1 to n;
+                for(int l=1;l<=n;l++){
+
+                    //Possible i's for all that lengths.
+                    for(int i=0;i<=numberOfnodes-l+1;i++){
+
+                        //the corresponding value of j will be.
+                        int j=i+l-1;
+
+                        //For this subtree i,j we want to find a root such that expectation is minimized
+                        expectation[i][j]=INT8_MAX;
+                        w[i][j]=w[i][j-1]+prob[j];
+                        //Checking for all possible roots in [i,j]
+                        for(int r=i;r<=j;r++){
+                            int t=e[i][r-1]+e[r+1][j]+w[i][j];
+                            if(t<expectation[i][j]){
+                                 expectation[i][j]=t;
+                                 roots[i][j]=r;
+                            } 
+                        }
+                    }
+                }
+
+           }
+           ~obst(){
+               delete[] obstarr;
+               delete[] obstProb;
+           }
+    };
 }
 

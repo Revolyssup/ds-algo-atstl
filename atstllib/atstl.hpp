@@ -6,4 +6,5 @@
 #include "sort.hpp"
 #include "heap.hpp"
 #include "hash.hpp"
-#include "bst.hpp"
+// #include "bst.hpp"
+#include "amathphy.h"

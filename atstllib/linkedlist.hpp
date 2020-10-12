@@ -90,7 +90,7 @@ void LinkedList<T>::insert(T data){
 template<typename T>
 void LinkedList<T>::print(){
     std::cout<<std::endl;
-    node<T>* temp= new node<T>();
+    node<T>* temp;
     temp=head.next;
     while(temp)
     {
@@ -106,7 +106,7 @@ template<typename T>
 int LinkedList<T>::check(T key)
 {
     int i=0;
-    node<T>* temp= new node<T>();
+    node<T>* temp;
     temp=head.next;
     while(temp)
     {
@@ -125,7 +125,9 @@ if(!(check(key)+1)) return;
 /*******The linus torvalds approved approach*******/
 atstl::node<int>* indirect=&head;
 while((*indirect).data!=key) indirect=&(*indirect->next);
-*indirect=*(indirect->next);
+//Now either we found key or we at last node or both.
+*indirect=*(indirect->next); //we found key
+
 
 /***********Previous approach which Linus torvalds particularly dont like*********/
     // atstl::node<int>* prev=NULL;
@@ -175,7 +177,7 @@ while((*indirect).data!=key) indirect=&(*indirect->next);
 
 template<typename T>
 void LinkedList<T>::pop(){
-        node<T>* temp=new node<T>();
+        node<T>* temp;
         temp=head.next;
         head.next=head.next->next;
         delete temp;
@@ -183,7 +185,7 @@ void LinkedList<T>::pop(){
 //defining ForEach
 template<typename T>
 void LinkedList<T>::Foreach(const std::function<void(atstl::node<T>*)> &cb){
-    node<T>* temp= new node<T>();
+    node<T>* temp;
     temp=head.next;
     while(temp)
     {

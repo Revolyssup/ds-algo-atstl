@@ -4,35 +4,33 @@
 #include<functional>
 #include "./atstllib/atstl.hpp"
 
-void print(atstl::node<int>* a){
-    std::cout<<(a->data)<<"\n";
-}
-void sq(atstl::node<int>* a){
-    a->data=2*a->data;
-}
-void twice(atstl::node<int>* n){
-    n->data=(n->data)*2;
-}
 
 int main(){
-    atstl::LinkedList<int> L;
-    L.insert(15);
-    L.insert(19);
-    L.insert(18);
-    L.insert(17);
-    L.insert(171);
-    L.insert(1789);
-    L.insert(156);
-    L.print();
-    // L.Foreach(twice);
-    L.Delete(19);
-    L.print();
+
 }
 
 
 
 
-
+//Testing pendulum
+    // double theta;
+    // double theta_dot;
+    // double mu;
+    // double len;
+    // std::cout<<"Enter length of pendulum: \n";
+    // std::cin>>len;
+    // std::cout<<"Enter initial angle(degrees) at t=0: \n";
+    // std::cin>>theta;
+    // std::cout<<"Enter initial angular velocity(rad/sec) at t=0: \n";
+    // std::cin>>theta_dot;
+    // std::cout<<"Enter coefficient of air friction \n";
+    // std::cin>>mu;
+    // atstl::calculas::pendulum p(len,theta,theta_dot,mu);
+    // double t;
+    // std::cout<<"Enter at what time(in seconds) from t=0,you want the angle from vertical: \n";
+    // std::cin>>t;
+    // std::cout<<"The pendulum at t="<<t<<" will be at "<<p.getThetaT(t)<<" degrees."<<std::endl;
+    // std::cout<<"The pendulum time period is: "<<p.timePeriod()<<" seconds."<<std::endl;
 
 
 
