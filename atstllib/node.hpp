@@ -35,6 +35,36 @@ namespace atstl{
 
     };
 
+    // template<typename T>
+    // class btreeinternal{
+    //     btreenode<T>* left;
+    //     btreenode<T>* right;
+    //     T key;
+    // };
+
+    // template<typename T>
+    //  class btreenode{ 
+    //      int numberOfKeys;
+    //      btreeinternal<T>* Nodes;
+    //      public:
+    //      btreenode(int n):numberOfKeys(n)){
+    //          Nodes=new btreeinternal[numberOfKeys];
+    //          for(int i=0;i<numberOfKeys;i++){
+    //              Nodes[i]->left=NULL;
+    //              Nodes[i]->right=NULL;
+    //          }
+    //      }
+    //      btreenode(int n,T[] keys):numberOfKeys(n)){
+    //          Nodes=new btreeinternal[numberOfKeys];
+    //          for(int i=0;i<numberOfKeys;i++){
+    //              Nodes[i].data=keys[i];
+    //              Nodes[i]->left=NULL;
+    //              Nodes[i]->right=NULL;
+    //          }
+    //      }
+         
+    //  };
+
      template<typename T>
      class RBtreenode{
         //node has data and pointer to next node

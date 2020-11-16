@@ -11,13 +11,14 @@ class LinkedList{
     node<T> head;
     //constructor 
     LinkedList():head(),length(0){}
-        
+         
     //copy constructor to deep copy a linked list
     LinkedList(const LinkedList& other):length(other.length){
-        node<T>* trackother=new node<T>(); //iterates on original list
-        node<T>* tracknew= new node<T>();   //iterates on new list
+        node<T>* trackother; //iterates on original list
+        node<T>* tracknew;   //iterates on new list
         tracknew=&head;
         trackother=other.head.next;
+        std::cout<<"Deep copying linked list...\n";
         while (trackother)
         {
            
@@ -29,7 +30,7 @@ class LinkedList{
              tracknew=tracknew->next; //tracknew is pointing to the latest new node
             std::cout<<temp->data<<" \n";
         }
-        
+        std::cout<<"Deep copy completed\n";
 
     }
     //constructor to create linked list from vector.
@@ -37,6 +38,14 @@ class LinkedList{
         /*insert(T data) method inserts at the beginning so we
          traverse the array backwards to form a linkedlist from a vector in order*/
         for(int i=values.size()-1;i>-1;i--){
+            this->insert(values[i]);
+        }
+    }
+    //constructor to create linked list from array.
+    LinkedList(const T* values,int size){
+        /*insert(T data) method inserts at the beginning so we
+         traverse the array backwards to form a linkedlist from a vector in order*/
+        for(int i=size-1;i>-1;i--){
             this->insert(values[i]);
         }
     }
@@ -92,6 +101,7 @@ void LinkedList<T>::print(){
     std::cout<<std::endl;
     node<T>* temp;
     temp=head.next;
+    std::cout<<"Printing list..."<<std::endl;
     while(temp)
     {
         std::cout<<temp->data<<" ";

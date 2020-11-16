@@ -3,10 +3,14 @@
 #include<thread>
 #include<functional>
 #include "./atstllib/atstl.hpp"
-
+ 
 
 int main(){
-
+    int vec[6]={12,58,96,23,1,4};
+    atstl::LinkedList<int> a(vec,6);
+    atstl::LinkedList<int> b=a;
+    b.print();
+    return 0;
 }
 
 

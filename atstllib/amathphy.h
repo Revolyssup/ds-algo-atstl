@@ -1,7 +1,51 @@
 #pragma once
 #include<cmath>
+#include<complex>
+#include<vector>
+
+
 namespace atstl{
-    namespace calculas{
+    //type definitions
+    typedef std::complex<double> cd;
+
+
+    /****************************/
+    namespace maths{
+        std::vector<cd> FFT(std::vector<cd>& a){
+            int n=a.size();
+            if(n==1) return std::vector<cd>(1,a[0]);
+            std::vector<cd> exp;
+            for(int itr=0;itr<n;itr++){
+                double alpha=-2*M_1_PI*itr/n;               //W^(-1)
+                exp[itr]=cd(cos(alpha),sin(alpha));        //W*(itrTH root of unity)
+            }
+
+            std::vector<cd> A0(n/2),A1(n/2);
+            for(auto itr=0;itr<n/2;itr++){ 
+                A0[itr]=a[itr*2];
+                A0[itr]=a[itr*2+1];
+            }
+            std::vector<cd> y0=FFT(A0); //Calculated y0 for all m's from 0 to n-1 in it
+            std::vector<cd> y1=FFT(A1);
+            
+            std::vector<cd> y;
+            for(int i=0;i<n/2;i++){
+                y[i]=y0[i]+exp[i]*y1[i];
+                y[i+(n/2)]=y0[i]-exp[i]*y1[i];
+            }
+            return y;
+        } 
+
+    
+
+
+    } // namespace maths
+    
+
+
+
+
+    namespace physics{
         //Differential calculas stuff
 
     //Using the phase space of theta-thetaDot to solve the problem with initial conditions
@@ -22,7 +66,7 @@ namespace atstl{
         //With air friction
         pendulum(double l,double theta_init,double thetaDot,double m):len(l),theta(theta_init*(3.14159/180)),mu(m),theta_dot(thetaDot){}
         double getThetaT(double t){
-             double delta_t=0.001;
+             double delta_t=0.0001;
              double time=0;
              double theta_new=theta;
              double theta_dot_temp=theta_dot;
