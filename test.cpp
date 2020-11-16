@@ -6,11 +6,11 @@
  
 
 int main(){
-    int vec[6]={12,58,96,23,1,4};
-    atstl::LinkedList<int> a(vec,6);
-    atstl::LinkedList<int> b=a;
-    b.print();
-    return 0;
+    std::vector<atstl::cd> a{1,2};
+    std::vector<atstl::cd> b=atstl::maths::FFT(a);
+    for(int i=0;i<b.size();i++){
+        std::cout<<b[i]<<"\n";
+    }
 }
 
 
