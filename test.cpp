@@ -6,11 +6,13 @@
  
 
 int main(){
-    std::vector<atstl::cd> a{1,2};
-    std::vector<atstl::cd> b=atstl::maths::FFT(a);
-    for(int i=0;i<b.size();i++){
-        std::cout<<b[i]<<"\n";
-    }
+    atstl::GraphAL g(5);
+    g.insertFrom(0,1);
+    g.insertFrom(1,2);
+    g.insertFrom(1,3);
+    g.insertFrom(2,3);
+    g.insertFrom(2,4);
+    g.print();
 }
 
 

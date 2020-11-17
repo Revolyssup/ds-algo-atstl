@@ -78,7 +78,7 @@ class LinkedList{
 
     //prints all elements
     void print();
-
+    void print(int i);// to print an index before the list.
     //Iterates over each element of list and executes the callback function
     void Foreach(const std::function<void(atstl::node<T>*)> &cb);
     // void Foreach(void(*cb)(atstl::node<T>*));
@@ -104,7 +104,7 @@ void LinkedList<T>::print(){
     std::cout<<"Printing list..."<<std::endl;
     while(temp)
     {
-        std::cout<<temp->data<<" ";
+        std::cout<<temp->data<<"--->";
         temp=temp->next;
         
     }
@@ -203,6 +203,22 @@ void LinkedList<T>::Foreach(const std::function<void(atstl::node<T>*)> &cb){
        temp=temp->next;
     
     }
+}
+
+template<typename T>
+void LinkedList<T>::print(int i){
+    std::cout<<std::endl;
+    node<T>* temp;
+    temp=head.next;
+    std::cout<<"Printing list..."<<std::endl;
+    std::cout<<i<<"--->";
+    while(temp)
+    {
+        std::cout<<temp->data<<"--->";
+        temp=temp->next;
+        
+    }
+   std::cout<<std::endl;
 }
 
 }
