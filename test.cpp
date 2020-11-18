@@ -6,20 +6,11 @@
  
 
 int main(){
-    atstl::Queue<int> q(5);
-    q.enq(10);
-    q.enq(13);
-    q.enq(14);
-    q.enq(15);
-    q.enq(16);
-    std::cout<<q.dq()<<"\n";
-    std::cout<<q.dq()<<"\n";
-    std::cout<<q.dq()<<"\n";
-    std::cout<<q.dq()<<"\n";
-    q.enq(127);
-    std::cout<<q.dq()<<"\n";
-    std::cout<<q.dq()<<"\n";
-      std::cout<<q.dq()<<"\n";
+    atstl::Stack<char> s(5);
+    s.push('k');
+    s.push('i');
+    s.push('e');
+    std::cout<<s.pop();
     
 }
 

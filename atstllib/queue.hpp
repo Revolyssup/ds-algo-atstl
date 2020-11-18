@@ -4,11 +4,15 @@ namespace atstl{
     class Queue{
         int front=-1;
         int back=-1;
-        int* q;
+        T* q;
         int size;
         bool noElemLeft=true;
         public:
-        Queue(int s):size(s),q(new T(size)){}
+        Queue(int s):size(s),q(new T[size]){}
+
+        ~Queue(){
+            delete q;
+        }
         void enq(T ele){
 
             if(!noElemLeft && (back+1)%size==front){
@@ -29,8 +33,8 @@ namespace atstl{
 
         T dq(){
             if(noElemLeft){
-                 std::cout<<"Queue Empty [Returning -1 in next line as err code, not element from Queue]!!\n";
-                return -1;
+                 std::cout<<"Queue Empty !!\n";
+                return T();
             }
             else if(back==front){
                 noElemLeft=true;
