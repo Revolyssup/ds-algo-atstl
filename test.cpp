@@ -6,17 +6,31 @@
  
 
 int main(){
-    atstl::GraphAL g(5);
-    g.insertFrom(0,1);
-    g.insertFrom(1,2);
-    g.insertFrom(1,3);
-    g.insertFrom(2,3);
-    g.insertFrom(2,4);
-    g.print();
+    atstl::Queue<int> q(5);
+    q.enq(10);
+    q.enq(13);
+    q.enq(14);
+    q.enq(15);
+    q.enq(16);
+    std::cout<<q.dq()<<"\n";
+    std::cout<<q.dq()<<"\n";
+    std::cout<<q.dq()<<"\n";
+    std::cout<<q.dq()<<"\n";
+    q.enq(127);
+    std::cout<<q.dq()<<"\n";
+    std::cout<<q.dq()<<"\n";
+      std::cout<<q.dq()<<"\n";
+    
 }
 
 
-
+    // atstl::GraphAL g(5);
+    // g.insertFrom(0,1);
+    // g.insertFrom(1,2);
+    // g.insertFrom(1,3);
+    // g.insertFrom(2,3);
+    // g.insertFrom(2,4);
+    // g.print();
 
 //Testing pendulum
     // double theta;

@@ -211,7 +211,7 @@ void LinkedList<T>::print(int i){
     node<T>* temp;
     temp=head.next;
     std::cout<<"Printing list..."<<std::endl;
-    std::cout<<i<<"--->";
+    std::cout<<i<<"->";
     while(temp)
     {
         std::cout<<temp->data<<"--->";
