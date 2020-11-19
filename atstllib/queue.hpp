@@ -8,10 +8,10 @@ namespace atstl{
         int size;
         bool noElemLeft=true;
         public:
-        Queue(int s):size(s),q(new T[size]){}
+        Queue(int s):size(s),q(new T[s]){}
 
         ~Queue(){
-            delete q;
+            delete[] q;
         }
 
         void enq(T ele);
@@ -28,7 +28,8 @@ namespace atstl{
             }
         if(noElemLeft){
             noElemLeft=false;
-            q[++back]=ele;
+           back=(back+1)%size;
+        q[back]=ele;
             front=back;
         }
        else{

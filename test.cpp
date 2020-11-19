@@ -6,7 +6,13 @@
  
 
 int main(){
-
+    atstl::Queue<int> q(2);
+    q.enq(1);
+    q.enq(2);
+    std::cout<<q.dq()<<'\n';
+    std::cout<<q.dq()<<'\n';
+    q.enq(5);
+     std::cout<<q.dq()<<'\n';
 }
 
 
