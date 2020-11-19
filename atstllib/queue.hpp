@@ -13,7 +13,14 @@ namespace atstl{
         ~Queue(){
             delete q;
         }
-        void enq(T ele){
+
+        void enq(T ele);
+        T dq();
+        bool isEmpty();
+    };
+
+    template<typename T>
+     void Queue<T>::enq(T ele){
 
             if(!noElemLeft && (back+1)%size==front){
                 std::cout<<"Queue full!!\n";
@@ -30,8 +37,9 @@ namespace atstl{
        }
        
         }
-
-        T dq(){
+    
+    template<typename T>
+    T Queue<T>::dq(){
             if(noElemLeft){
                  std::cout<<"Queue Empty !!\n";
                 return T();
@@ -43,5 +51,10 @@ namespace atstl{
             front=(front+1)%size;
             return temp;
         }
-    };
+
+    template<typename T>
+    bool Queue<T>::isEmpty(){
+        return noElemLeft;
+    }
+
 }

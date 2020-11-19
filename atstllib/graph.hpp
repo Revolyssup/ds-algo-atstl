@@ -17,21 +17,27 @@ namespace atstl{
             }
         }
 
-        void insertFrom(int i,int v){ //i will now also point to v
+        void insertFrom(int i,int v);
+        
+        void insertFrom(int i,std::vector<int> v);
+
+        void print();
+
+    };
+
+    void GraphAL::insertFrom(int i,int v){ //i will now also point to v
             Al[i]->insert(v);
         }
-        
-        void insertFrom(int i,std::vector<int> v){ //i will now also point to v
+
+    void GraphAL::insertFrom(int i,std::vector<int> v){ //i will now also point to v
         for(int j=0;j<v.size();j++){
              Al[i]->insert(v[j]);
         }
         }
-
-        void print(){
+    
+    void GraphAL::print(){
             for(int i=0;i<noOfVertices;i++){
                 Al[i]->print(i);
             }
         }
-
-    };
 }

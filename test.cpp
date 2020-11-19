@@ -6,12 +6,7 @@
  
 
 int main(){
-    atstl::Stack<char> s(5);
-    s.push('k');
-    s.push('i');
-    s.push('e');
-    std::cout<<s.pop();
-    
+
 }
 
 
