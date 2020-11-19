@@ -26,18 +26,13 @@ namespace atstl{
                 std::cout<<"Queue full!!\n";
                 return;
             }
-        if(noElemLeft){
-            noElemLeft=false;
-           back=(back+1)%size;
-        q[back]=ele;
-            front=back;
-        }
-       else{
         back=(back+1)%size;
         q[back]=ele;
-       }
-       
-        }
+        if(noElemLeft){
+            noElemLeft=false;
+            front=back;
+        }     
+     }
     
     template<typename T>
     T Queue<T>::dq(){
