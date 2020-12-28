@@ -20,11 +20,11 @@ log(){
 }
 
 warn(){
-     echo -e "$(c Bs)[CPP RUNNER]:$(c) $(c 0y)$@$(c)"
+     echo -e "$(c 0B)[CPP RUNNER]:$(c) $(c 0y)$@$(c)"
 }
 
 error(){
-     echo -e "$(c Bs)[CPP RUNNER]:$(c) $(c 0r)$@$(c)"
+     echo -e "$(c 0B)[CPP RUNNER]:$(c) $(c 0r)$@$(c)"
 }
 
 banner(){
@@ -85,7 +85,7 @@ parse_args(){
         do
             VALUE=$(echo $i | awk -F= '{print $2}') #$2 is everything after equals sign.
             case "$i" in
-            --no-mem) $no_mem=1
+            --no-mem) no_mem=1
             ;;
             -w=* | --watch=*) $towatch=VALUE
             ;;
