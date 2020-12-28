@@ -16,7 +16,7 @@ towatch=$input
 # Some usable functions
 log(){
     # [CPP RUNNER] in blue and all arguments given to log as cyan.
-    echo -e "$(c Bs)[CPP RUNNER]:$(c) $(c 0c)$@$(c)"
+    echo -e "$(c 0B)[CPP RUNNER]:$(c) $(c 0c)$@$(c)"
 }
 
 warn(){
@@ -85,7 +85,7 @@ parse_args(){
         do
             VALUE=$(echo $i | awk -F= '{print $2}') #$2 is everything after equals sign.
             case "$i" in
-            --no-mem) $no_mem=0
+            --no-mem) $no_mem=1
             ;;
             -w=* | --watch=*) $towatch=VALUE
             ;;
