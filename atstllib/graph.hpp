@@ -17,12 +17,17 @@ namespace atstl{
             }
         }
 
+        ~GraphAL(){
+            for(auto i:Al){
+                delete i;
+            }
+        }
         void insertFrom(int i,int v);
         
         void insertFrom(int i,std::vector<int> v);
 
         void print();
-        
+
         
 
     };
