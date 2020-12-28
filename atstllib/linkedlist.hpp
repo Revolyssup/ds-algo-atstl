@@ -10,8 +10,8 @@ class LinkedList{
     int length;
     node<T> head;
     //constructor 
-    LinkedList():head(),length(0){}
-         
+    LinkedList():length(0),head(){}
+          
     //copy constructor to deep copy a linked list
     LinkedList(const LinkedList& other):length(other.length){
         node<T>* trackother; //iterates on original list
