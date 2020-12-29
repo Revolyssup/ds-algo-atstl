@@ -6,13 +6,14 @@
 c() { echo "$1" | sed -E "s/(^|[^-_])([krgybmcw])/\1-\2/;s/(^$|0)/!0¡/;s/([BUFNL])/!\1¡/g;s/([-_])([krgybmcw])/!\1\2¡/g;y/BUFN-_krgybmcw/14573401234567/;s/L/22/;s/!/\\\033[/g;s/¡/m/g"; }
 
 
-
-
 #---------------------GLOBAL VARIABLES------------------
 input="test.cpp"
 output="a.out"
 no_mem=0 #default mem check is enables using valgrind.
 towatch=$input
+
+
+
 # Some usable functions
 log(){
     # [CPP RUNNER] in blue and all arguments given to log as cyan.
@@ -87,17 +88,17 @@ parse_args(){
             case "$i" in
             --no-mem) no_mem=1
             ;;
-            -w=* | --watch=*) $towatch=VALUE
+            -w=* | --watch=*) towatch=$VALUE
             ;;
-            -o=* | --output=*) $output=VALUE
+            -o=* | --output=*) output=$VALUE
             ;;
-            -mf=* | --makefile) assign_makefile VALUE
+            -mf=* | --makefile) assign_makefile $VALUE
             ;;
             -h | --help) help 
             ;;
             -* | --*) echo "Invalid Flag. RUN ./run.sh -h to get help."
             ;;
-            *) $input=VALUE     
+            *) input=$i   
             esac
         done
 }
@@ -140,6 +141,7 @@ cpp_runner(){
 }
 
 
+
 # Execution starts here:
 
 parse_args $@
@@ -153,11 +155,11 @@ if command -v inotifywait >/dev/null 2>&1;then
     cpp_runner "$@"
     echo ""
     cleanup
-    log "Watching for changes..."
+    log "Watching $towatch for changes..."
 
     while inotifywait -q -r -e modify $towatch >/dev/null 2>&1;do
         cpp_runner "$@"
-        log "Watching for changes..."
+        log "Watching $towatch for changes..."
     done
 
 
