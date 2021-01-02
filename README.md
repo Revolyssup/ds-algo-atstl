@@ -1,5 +1,5 @@
 # Implemented Basic Data structure/ algorithm and sorts
-# Also contains POSIX compliant shell scripts to execute files in a docker container with features like monitoring and re-compilation and execution on saving.
+# Also contains POSIX compliant shell scripts to execute C/C++ files in a docker container with features like monitoring and re-compilation and execution on saving.
 ### Run this command to make it executable by giving permissions.
 ```shell
     chmod +x main.sh
