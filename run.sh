@@ -10,22 +10,22 @@ c() { echo "$1" | sed -E "s/(^|[^-_])([krgybmcw])/\1-\2/;s/(^$|0)/!0¡/;s/([BUFN
 input="test.cpp"
 output="a.out"
 no_mem=0 #default mem check is enables using valgrind.
-towatch=$input
+# towatch=$input
 
 
 
 # Some usable functions
 log(){
-    # [CPP RUNNER] in blue and all arguments given to log as cyan.
-    echo -e "$(c 0B)[CPP RUNNER]:$(c) $(c 0c)$@$(c)"
+    # [C/CPP RUNNER] in blue and all arguments given to log as cyan.
+    echo -e "$(c 0B)[C/CPP RUNNER]:$(c) $(c 0c)$@$(c)"
 }
 
 warn(){
-     echo -e "$(c 0B)[CPP RUNNER]:$(c) $(c 0y)$@$(c)"
+     echo -e "$(c 0B)[C/CPP RUNNER]:$(c) $(c 0y)$@$(c)"
 }
 
 error(){
-     echo -e "$(c 0B)[CPP RUNNER]:$(c) $(c 0r)$@$(c)"
+     echo -e "$(c 0B)[C/CPP RUNNER]:$(c) $(c 0r)$@$(c)"
 }
 
 banner(){
@@ -98,7 +98,7 @@ parse_args(){
             ;;
             -* | --*) echo "Invalid Flag. RUN ./run.sh -h to get help."
             ;;
-            *) input=$i   
+            *) input=$i    
             esac
         done
 }
@@ -117,7 +117,13 @@ cpp_runner(){
     if [ "$makefile" != "" ];then #makefile wasn't set. Compiling single $input
         make -f $makefile
     else 
-        clang++ -Wall -std=c++17 -o "$output" $input
+        if [ ${input: -2} == ".c" ];then
+            echo "Compiling c file."
+            clang -Wall -std=c17 -o "$output" $input
+        else 
+            echo "Compiling c++ file."
+            clang++ -Wall -std=c++17 -o "$output" $input
+        fi
     fi
 
     #In case above process returned non-zero code.
@@ -145,13 +151,12 @@ cpp_runner(){
 # Execution starts here:
 
 parse_args $@
-
-banner "==================[CPP RUNNER]================="
+towatch=$input
+banner "==================[C/CPP RUNNER]================="
 
 if command -v inotifywait >/dev/null 2>&1;then
     log "Monitoring changes enabled..."
     log "Watching $towatch for changes..."
-
     cpp_runner "$@"
     echo ""
     cleanup
