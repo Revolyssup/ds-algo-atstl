@@ -4,6 +4,7 @@
 namespace atstl{
         namespace heap{
                 //O(logn)
+                //i is the root.
             void maxHeapify(int* arr,int i,int size){
                 int l=2*i+1;
                 int r=2*i+2;
@@ -13,6 +14,7 @@ namespace atstl{
                 if(r<size && arr[largest]<arr[r]) largest=r;
                 if(largest!=i){  //Means that heap isn't already max_heaped.
                     atstl::utils::swap(&arr[i],&arr[largest]); //Swap the root of subtree with max number
+                    //now we no more have largest element on largest index after the swap.
                     maxHeapify(arr,largest,size); //max_heapify the subtree where our old root went
                     
                 } 

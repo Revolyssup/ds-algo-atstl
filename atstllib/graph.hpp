@@ -24,19 +24,20 @@ namespace atstl{
             }
         }
         void insertFrom(int i,int v,int w);
-        
+        void insertFrom(int i,int v);
         void insertFrom(int i,std::vector<std::pair<int,int>>& v);
 
         void print();
 
-        
 
     };
 
     void GraphAL::insertFrom(int i,int v,int w){ //i will now also point to v
             Al[i]->push_back(std::make_pair(v,w));
         }
-
+    void GraphAL::insertFrom(int i,int v){ //i will now also point to v
+            Al[i]->push_back(std::make_pair(v,1)); //default weight is 1
+        }
     void GraphAL::insertFrom(int i,std::vector<std::pair<int,int>>& v){ //i will now also point to v
         for(int j=0;j<v.size();j++){
              Al[i]->push_back(v[j]);
