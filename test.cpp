@@ -6,13 +6,11 @@
  
 
 int main(){
-
-    atstl::GraphAL g(5);
-    g.insertFrom(0,1);
-    g.insertFrom(1,2);
-    g.insertFrom(2,3);
-    g.insertFrom(2,4);
-    g.print();
+    atstl::LinkedList<int> a;
+    a.insert(5);a.insert(4);a.insert(6);a.insert(7);a.insert(8);
+    a.print();
+    a.reverse();
+    a.print();
 }
 
 

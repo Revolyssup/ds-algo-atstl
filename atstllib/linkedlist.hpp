@@ -82,6 +82,7 @@ class LinkedList{
     //Iterates over each element of list and executes the callback function
     void Foreach(const std::function<void(atstl::node<T>*)> &cb);
     // void Foreach(void(*cb)(atstl::node<T>*));
+    void reverse();
 };
 
 /***************************************Defining Member functions**************************************************/
@@ -221,5 +222,21 @@ void LinkedList<T>::print(int i){
    std::cout<<std::endl;
 }
 
+
+
+template<typename T>
+void LinkedList<T>::reverse(){
+    atstl::node<int>* back=NULL;
+    atstl::node<int>* front=head.next;
+    atstl::node<int>* temp;
+    while(front!=NULL){
+        std::cout<<front->data<<"\n";
+        temp=front->next;
+        front->next=back;
+        back=front;
+        front=temp;
+    }
+    head.next=back;
 }
 
+}
